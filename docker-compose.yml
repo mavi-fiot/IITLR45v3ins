@@ -2,19 +2,19 @@ version: '3'
 
 services:
   web:
-    image: mavidoc/my-web-app:latest
+    image: mavidoc/my-web-app2:latest
     ports:
       - "80:80"
-    container_name: my_web_app
+    container_name: my_web_app2
     restart: always
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+      - "com.centurylinklabs.watchtower2.enable=true"
 
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower2
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    container_name: watchtower
+    container_name: watchtower2
     environment:
       - WATCHTOWER_CLEANUP=true
 
