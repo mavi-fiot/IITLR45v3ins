@@ -15,6 +15,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
+    command: --interval 300
+
+
 
 # version: '3'
 
