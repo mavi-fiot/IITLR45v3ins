@@ -11,7 +11,7 @@ services:
       - "com.centurylinklabs.watchtower2.enable=true"
 
   watchtower:
-    image: containrrr/watchtower2
+    image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     container_name: watchtower2
