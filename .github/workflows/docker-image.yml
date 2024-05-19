@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
@@ -27,4 +27,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: mavidoc/my-web-app:latest
+        tags: mavidoc/my-web-app2:latest
