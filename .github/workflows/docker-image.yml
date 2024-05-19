@@ -27,4 +27,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: mavidoc/my-web-app2:latest
+        tags: mavidoc/my-web-app:latest
