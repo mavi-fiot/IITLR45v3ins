@@ -8,7 +8,9 @@ body {
 h1 {
     color: #1255e4;
 }
-
+h2 {
+    color:forestgreen;
+}
 form {
     max-width: 400px;
     margin: 0 auto;
