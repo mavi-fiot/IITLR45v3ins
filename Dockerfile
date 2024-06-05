@@ -3,11 +3,11 @@ FROM nginx:latest
 
 RUN apt-get update && apt-get install -y git
 
-RUN git clone https://github.com/mavi-fiot/IITLR45v3ins.git /tmp/IITLR45v3ins
+# RUN git clone https://github.com/mavi-fiot/IITLR45v3ins.git /tmp/IITLR45v3ins
 
-RUN cp -r /tmp/IITLR45v3ins/* /usr/share/nginx/html/
+# RUN cp -r /tmp/IITLR45v3ins/* /usr/share/nginx/html/
 
-RUN rm -rf /tmp/IITLR45v3ins
+# RUN rm -rf /tmp/IITLR45v3ins
 
 # COPY nginx.conf /etc/nginx/nginx.conf
 # COPY index.html /usr/share/nginx/html/
