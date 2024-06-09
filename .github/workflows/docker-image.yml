@@ -27,6 +27,6 @@ jobs:
       with:
         context: .
         push: true
-        tags: mavidoc/iitlr45v3ins:latest
+        tags: mavidoc/iitlr6:latest
 
 
