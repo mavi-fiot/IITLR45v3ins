@@ -9,7 +9,7 @@ RUN cp -r /tmp/IITLR45v3ins/* /usr/share/nginx/html/
 
 RUN rm -rf /tmp/IITLR45v3ins
 
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 # COPY index.html /usr/share/nginx/html/
 # COPY styles.css /usr/share/nginx/html/
 
