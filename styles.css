@@ -6,11 +6,11 @@ body {
 }
 
 h1 {
-    color: #4de412;
+    color: #1277e4;
 }
 
 h2 {
-    color:forestgreen;
+    color:rgb(4, 0, 245);
 }
 
 form {
@@ -36,7 +36,7 @@ button {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
-    color: #e71818;
+    color: #34e718;
     border: none;
     border-radius: 5px;
     cursor: pointer;
