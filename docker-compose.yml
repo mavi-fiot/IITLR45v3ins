@@ -15,6 +15,15 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     labels:
       - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mavidoc/iitlr45v3ins:latest
+    ports:
+      - "80:80"
+    restart: always
+
 
   letsencrypt:
     image: nginxproxy/acme-companion:2.2
@@ -30,6 +39,14 @@ services:
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 60
+    restart: always
 
 networks:
   default:
