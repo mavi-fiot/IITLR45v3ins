@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: mavidoc/iitlr6:latest
+    image: mavidoc/iitlr45v3ins:latest
     ports:
       - "80:80"
     restart: always
