@@ -2,10 +2,10 @@ body {
     font-family: Arial, sans-serif;
     background-color: #d3d4d0f4;
     margin: 10;
-    padding-top: 200px; /* Встановлює відступ від верхнього краю */
-    padding-right: 200px; /* Встановлює відступ від правого краю */
+    padding-top: 50px; /* Встановлює відступ від верхнього краю */
+    padding-right: 50px; /* Встановлює відступ від правого краю */
     padding-bottom: 70px; /* Встановлює відступ від нижнього краю */
-    padding-left: 100px; /* Встановлює відступ від лівого краю */}
+    padding-left: 70px; /* Встановлює відступ від лівого краю */}
 
 h1 {
     color: #1277e4;
