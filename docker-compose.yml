@@ -6,7 +6,7 @@ services:
     container_name: nginx-proxy
     restart: always
     ports:
-      - "80:80"  # Змінено порт на 8080 для уникнення конфліктів
+      - "8080:80"  # Змінено порт на 8080 для уникнення конфліктів
       - "443:443"
     volumes:
       - conf:/etc/nginx/conf.d
@@ -24,7 +24,7 @@ services:
       dockerfile: Dockerfile
     image: mavidoc/iitlr45v3ins:latest
     ports:
-      - "8080:80"  # Змінили порт на 8080
+      - "80:80"  # Змінили порт на 8080
     restart: always
 
   letsencrypt:
