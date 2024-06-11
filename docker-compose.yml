@@ -1,22 +1,22 @@
 version: '3'
 
 services:
-  nginx-proxy:
-    image: nginxproxy/nginx-proxy
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - "8080:80"  # Змінено порт на 8080 для уникнення конфліктів
-      - "443:443"
-    volumes:
-      - conf:/etc/nginx/conf.d
-      - vhost:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - dhparam:/etc/nginx/dhparam
-      - certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    labels:
-      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+  # nginx-proxy:
+  #   image: nginxproxy/nginx-proxy
+  #   container_name: nginx-proxy
+  #   restart: always
+  #   ports:
+  #     - "8080:80"  # Змінено порт на 8080 для уникнення конфліктів
+  #     - "443:443"
+  #   volumes:
+  #     - conf:/etc/nginx/conf.d
+  #     - vhost:/etc/nginx/vhost.d
+  #     - html:/usr/share/nginx/html
+  #     - dhparam:/etc/nginx/dhparam
+  #     - certs:/etc/nginx/certs:ro
+  #     - /var/run/docker.sock:/tmp/docker.sock:ro
+  #   labels:
+  #     - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
 
   web:
     build:
@@ -27,21 +27,6 @@ services:
       - "80:80"  # Змінили порт на 8080
     restart: always
 
-  letsencrypt:
-    image: nginxproxy/acme-companion:2.2
-    container_name: nginx-proxy-le
-    restart: always
-    depends_on:
-      - "nginx-proxy"
-    environment:
-      - DEFAULT_EMAIL=scribelux@gmail.com
-    volumes:
-      - certs:/etc/nginx/certs:rw
-      - acme:/etc/acme.sh
-      - vhost:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
@@ -50,17 +35,34 @@ services:
     command: --interval 60
     restart: always
 
-networks:
-  default:
-    name: nginx
+#   letsencrypt:
+#     image: nginxproxy/acme-companion:2.2
+#     container_name: nginx-proxy-le
+#     restart: always
+#     depends_on:
+#       - "nginx-proxy"
+#     environment:
+#       - DEFAULT_EMAIL=scribelux@gmail.com
+#     volumes:
+#       - certs:/etc/nginx/certs:rw
+#       - acme:/etc/acme.sh
+#       - vhost:/etc/nginx/vhost.d
+#       - html:/usr/share/nginx/html
+#       - /var/run/docker.sock:/var/run/docker.sock:ro
 
-volumes:
-  conf:
-  vhost:
-  html:
-  dhparam:
-  certs:
-  acme:
+  
+
+# networks:
+#   default:
+#     name: nginx
+
+# volumes:
+#   conf:
+#   vhost:
+#   html:
+#   dhparam:
+#   certs:
+#   acme:
 
 # networks:
 #   default:
