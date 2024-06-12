@@ -7,7 +7,6 @@ resource "aws_instance" "lr6ver2" {
     ami           = "ami-01abb191f665c021f"
     instance_type = "t2.micro"
     key_name      = "lr45v4"
-    # user_data     = file("config.sh")
     user_data=<<EOF
 #!/bin/bash
 
@@ -54,10 +53,7 @@ EOF
         Name = "lr6ver2"
     }
 
-    # Встановлення публічного IP-адреси
     associate_public_ip_address = true
-
-    # Зв'язування з безпечною групою
     vpc_security_group_ids = [aws_security_group.lr6_security_group.id]
 }
 
@@ -71,7 +67,6 @@ resource "aws_subnet" "example_subnet" {
     cidr_block = "10.0.1.0/24"
 }
 
-# Опис правил файрвола
 resource "aws_security_group" "lr6_security_group" {
     name        = "lr6-security-group"
     description = "Allow inbound traffic on port 80"
@@ -82,28 +77,24 @@ resource "aws_security_group" "lr6_security_group" {
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-
     ingress {
         from_port   = 22
         to_port     = 22
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-
     ingress {
         from_port   = 8030
         to_port     = 8030
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-
     ingress {
         from_port   = 443
         to_port     = 443
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-
     egress {
         from_port   = 0
         to_port     = 0
@@ -111,9 +102,9 @@ resource "aws_security_group" "lr6_security_group" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 
-    tags = {
-        Name = "lr6sg"
-    }
-
 }
+
+
+
+
 
